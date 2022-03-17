@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name" translatable="false">EcoMonitor4</string>
+    <string name="temp_text" translatable="false">Hours from now vs temperature (degrees Celsius)</string>
+    <string name="pop_text" translatable="false">Hours from now vs probability of precipitation (percent)</string>
+    <string name="humid_text" translatable="false">Hours from now vs air humidity (percent)</string>
+    <string name="field_name_input" translatable="false">Enter field name</string>
+    <string name="field_name_button" translatable="false">Click to add new field</string>
+    <string name="fields" translatable="false">Fields - this part of the app allows the user to create \'field\' objects, which are displayed with physical data (from the pi)</string>
+    <string name="weather" translatable="false">Weather - this part of the app accepts a city as input and outputs a short-term weather forecast for that city</string>
+    <string name="pi" translatable="false">Pi data - this part of the app is what links to the Raspberry Pi (via bluetooth) and stores data received from it</string>
+    <string name="get_pi_data" translatable="false">Retrieve data from RaspberryPi</string>
+    <string name="test_output" translatable="false">this is a temporary feature</string>
+    <string name="city_edit_text" translatable="false">Enter a city near you</string>
+    <string name="weather_button" translatable="false">Click for weather forecast</string>
+    <string name="delete_field" translatable="false">Triple click to delete field</string>
+    <string name="field_info" translatable="false">Click to see the raspberry pi data gathered about this field</string>
+    <string name="about_us" translatable="false">Hello!\n\nFor more information about this project go to our website here (sorry i do not know how to hyperlink): https://pi-drate.github.io\n\nIf you are interested, the code for our project can be found here: https://github.com/pi-drate/pi-drate.github.io\n\nThank you for supporting our project!</string>
+</resources>
