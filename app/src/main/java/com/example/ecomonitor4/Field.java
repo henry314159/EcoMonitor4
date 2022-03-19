@@ -15,9 +15,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-// Make so data from pi can is also accounted for.
-// Make so it displays data from pi, maybe as a graph?
-
 public class Field extends AppCompatActivity {
 
     int pos;
@@ -58,7 +55,7 @@ public class Field extends AppCompatActivity {
             startActivity(data);
         });
     }
-    private void writeData(String data) { // Make so data from pi is also accounted for
+    private void writeData(String data) {
         try {
             FileOutputStream fileOutputStream = openFileOutput("MyFile", Context.MODE_PRIVATE);
             fileOutputStream.write((data).getBytes());
@@ -67,7 +64,7 @@ public class Field extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    private String readFile() { // Make so data from pi can is also accounted for
+    private String readFile() {
         StringBuilder stringBuilder = new StringBuilder();
         try {
             FileInputStream fileInputStream = openFileInput("MyFile");

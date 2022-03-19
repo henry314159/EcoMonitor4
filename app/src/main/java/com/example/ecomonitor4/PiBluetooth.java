@@ -6,7 +6,6 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Set;
 import java.util.UUID;
-
 import android.Manifest;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -20,7 +19,6 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
@@ -39,13 +37,11 @@ public class PiBluetooth extends Activity {
 
         if (requestCode == 0) {
 
-            // Checking whether user granted the permission or not.
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                // Showing the toast message
-                Toast.makeText(PiBluetooth.this, "Camera Permission Granted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PiBluetooth.this, "Bluetooth Permission Granted", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(PiBluetooth.this, "Camera Permission Denied", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PiBluetooth.this, "Bluetooth Permission Denied", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -65,7 +61,7 @@ public class PiBluetooth extends Activity {
             {
                 for(BluetoothDevice device : pairedDevices)
                 {
-                    if(device.getName().equals("raspberrypi-0")) //Note, you will need to change this to match the name of your device
+                    if(device.getName().equals("raspberrypi-0"))
                     {
                         Log.e("EcoMonitor",device.getName());
                         mmDevice = device;
@@ -140,7 +136,6 @@ public class PiBluetooth extends Activity {
                                     System.out.println(data);
                                     readBufferPosition = 0;
 
-                                    //The variable data now contains our full command
                                     handler.post(new Runnable() {
                                         public void run() {
                                             String[] splitData = data.split(" ");
@@ -163,7 +158,6 @@ public class PiBluetooth extends Activity {
 
                         }
                     } catch (IOException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
 
@@ -171,17 +165,9 @@ public class PiBluetooth extends Activity {
             }
         }
         button.setOnClickListener(v -> {
-            // Perform action on temp button click
 
             (new Thread(new workerThread("hello"))).start();
 
         });
-
-
-
-
-
-
     }
-
 }

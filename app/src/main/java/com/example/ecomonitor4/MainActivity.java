@@ -6,11 +6,6 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-// Make pi collect data ** probably gonna be very hard i.e. lots of research **
-// Automatically store pi data in a user selected field + display when field selected + make field system more elegant
-// Weather 'city not found'
-// Fix final naming of app
-// Upload code to github - best practices for making code available online?
 
 public class MainActivity extends AppCompatActivity {
 
