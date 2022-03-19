@@ -3,6 +3,7 @@ package com.example.ecomonitor4;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Set;
 import java.util.UUID;
 
@@ -11,13 +12,11 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -98,8 +97,10 @@ public class PiBluetooth extends Activity {
 
         final Handler handler = new Handler();
 
-        Button b = findViewById(R.id.testButton);
-        TextView txt = findViewById(R.id.testText);
+        Button button = findViewById(R.id.testButton);
+        TextView pressure = findViewById(R.id.pressure);
+        TextView temp = findViewById(R.id.temperature);
+        TextView humid = findViewById(R.id.humidity);
 
 
         final class workerThread implements Runnable {
@@ -121,14 +122,12 @@ public class PiBluetooth extends Activity {
                         final InputStream mmInputStream;
 
                         mmInputStream = mmSocket.getInputStream();
-                        System.out.println(mmSocket);
-                        System.out.println(mmDevice);
-                        System.out.println(mmInputStream);
+
                         bytesAvailable = mmInputStream.available();
                         if (bytesAvailable > 0) {
 
                             byte[] packetBytes = new byte[bytesAvailable];
-                            Log.e("Aquarium recv bt", "bytes available");
+                            Log.e("EcoMonitor recv bt", "bytes available");
                             byte[] readBuffer = new byte[1024];
                             mmInputStream.read(packetBytes);
 
@@ -137,26 +136,27 @@ public class PiBluetooth extends Activity {
                                 if (b == delimiter) {
                                     byte[] encodedBytes = new byte[readBufferPosition];
                                     System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
-                                    final String data = new String(encodedBytes, "US-ASCII");
+                                    final String data = new String(encodedBytes, StandardCharsets.US_ASCII);
+                                    System.out.println(data);
                                     readBufferPosition = 0;
 
                                     //The variable data now contains our full command
                                     handler.post(new Runnable() {
                                         public void run() {
-                                            txt.setText(data);
+                                            String[] splitData = data.split(" ");
+                                            temp.setText("Temperature: " + splitData[0]);
+                                            pressure.setText("Pressure: " + splitData[1]);
+                                            humid.setText("Humidity: " + splitData[2]);
                                         }
                                     });
-
                                     workDone = true;
                                     break;
-
 
                                 } else {
                                     readBuffer[readBufferPosition++] = b;
                                 }
                             }
-
-                            if (workDone == true) {
+                            if (workDone) {
                                 mmSocket.close();
                                 break;
                             }
@@ -170,13 +170,11 @@ public class PiBluetooth extends Activity {
                 }
             }
         }
-        b.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Perform action on temp button click
+        button.setOnClickListener(v -> {
+            // Perform action on temp button click
 
-                (new Thread(new workerThread("hello"))).start();
+            (new Thread(new workerThread("hello"))).start();
 
-            }
         });
 
 
