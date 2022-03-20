@@ -61,7 +61,7 @@ public class PiBluetooth extends Activity {
             {
                 for(BluetoothDevice device : pairedDevices)
                 {
-                    if(device.getName().equals("raspberrypi-0"))
+                    if(device.getName().equals("raspberrypi"))
                     {
                         Log.e("EcoMonitor",device.getName());
                         mmDevice = device;

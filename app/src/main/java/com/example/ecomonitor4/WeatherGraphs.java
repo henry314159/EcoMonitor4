@@ -41,12 +41,9 @@ public class WeatherGraphs extends AppCompatActivity {
             TextView tempText = findViewById(R.id.tempGraphText);
             TextView popText = findViewById(R.id.popGraphText);
             TextView humidText = findViewById(R.id.humidityGraphText);
-
             tempText.setText(getString(R.string.temp_text));
             popText.setText(getString(R.string.pop_text));
             humidText.setText(getString(R.string.humid_text));
-
-
             if (getIntent().hasExtra("com.example.ecomonitor4.CITY")) {
                 int[] output1 = new int[0];
                 try {
