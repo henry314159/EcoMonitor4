@@ -74,12 +74,10 @@ public class PiBluetooth extends Activity {
                 mmSocket.connect();
             }
 
-            //msg += "\n";
             OutputStream mmOutputStream = mmSocket.getOutputStream();
             mmOutputStream.write(msg2send.getBytes());
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -97,6 +95,7 @@ public class PiBluetooth extends Activity {
         TextView pressure = findViewById(R.id.pressure);
         TextView temp = findViewById(R.id.temperature);
         TextView humid = findViewById(R.id.humidity);
+        TextView moisture = findViewById(R.id.moisture);
 
 
         final class workerThread implements Runnable {
@@ -136,13 +135,12 @@ public class PiBluetooth extends Activity {
                                     System.out.println(data);
                                     readBufferPosition = 0;
 
-                                    handler.post(new Runnable() {
-                                        public void run() {
-                                            String[] splitData = data.split(" ");
-                                            temp.setText("Temperature: " + splitData[0]);
-                                            pressure.setText("Pressure: " + splitData[1]);
-                                            humid.setText("Humidity: " + splitData[2]);
-                                        }
+                                    handler.post(() -> {
+                                        String[] splitData = data.split(" ");
+                                        temp.setText("Temperature: " + splitData[0]);
+                                        pressure.setText("Pressure: " + splitData[1]);
+                                        humid.setText("Humidity: " + splitData[2]);
+                                        moisture.setText("Moisture: " + splitData[3]);
                                     });
                                     workDone = true;
                                     break;
@@ -164,10 +162,6 @@ public class PiBluetooth extends Activity {
                 }
             }
         }
-        button.setOnClickListener(v -> {
-
-            (new Thread(new workerThread("hello"))).start();
-
-        });
+        button.setOnClickListener(v -> (new Thread(new workerThread("hello"))).start());
     }
 }
