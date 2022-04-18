@@ -46,8 +46,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             gauge:initialValue="22"
-            gauge:maxValue="100"
-            gauge:minValue="0"
+            gauge:maxValue="1100"
+            gauge:minValue="900"
             gauge:totalNicks="120"
             gauge:valuePerNick="1" />
 
