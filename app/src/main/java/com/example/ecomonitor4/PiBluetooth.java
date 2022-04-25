@@ -32,6 +32,8 @@ public class PiBluetooth extends Activity {
     BluetoothSocket mmSocket;
     BluetoothDevice mmDevice = null;
 
+    String command = "hello";
+
     final byte delimiter = 33;
     int readBufferPosition = 0;
 
@@ -45,13 +47,13 @@ public class PiBluetooth extends Activity {
     Gauge humid;
     TextView moisture;
 
+    @RequiresApi(api = Build.VERSION_CODES.S)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pi);
 
         startStop = findViewById(R.id.testButton);
-
         startStop.setOnClickListener(v -> {
             if (onOff) {
                 runnableCode.run();
@@ -60,6 +62,12 @@ public class PiBluetooth extends Activity {
                 handler.removeCallbacks(runnableCode);
                 onOff = true;
             }
+        });
+
+        Button motorControl = findViewById(R.id.motorControl);
+        motorControl.setOnClickListener(v -> {
+            Intent data = new Intent(getApplicationContext(), Motors.class);
+            startActivity(data);
         });
 
         pressure = findViewById(R.id.pressureGauge);
@@ -73,7 +81,7 @@ public class PiBluetooth extends Activity {
         @RequiresApi(api = Build.VERSION_CODES.S)
         @Override
         public void run() {
-            sendBtMsg("hello");
+            sendBtMsg(command);
             while (!Thread.currentThread().isInterrupted()) {
                 int bytesAvailable;
                 boolean workDone = false;
@@ -175,6 +183,7 @@ public class PiBluetooth extends Activity {
                 mmSocket.connect();
             }
 
+            System.out.println(msg2send);
             OutputStream mmOutputStream = mmSocket.getOutputStream();
             mmOutputStream.write(msg2send.getBytes());
 
