@@ -92,7 +92,8 @@
         android:layout_height="wrap_content"
         android:text="Gauge stop/start"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:backgroundTint="@color/green" />
 
     <TextView
         android:id="@+id/moisture"
@@ -109,6 +110,7 @@
         android:layout_marginBottom="132dp"
         android:text="Click to control motors"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/testButton" />
+        app:layout_constraintStart_toStartOf="@+id/testButton"
+        app:backgroundTint="@color/green" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

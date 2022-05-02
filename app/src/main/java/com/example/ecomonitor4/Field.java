@@ -55,15 +55,18 @@ public class Field extends AppCompatActivity {
             startActivity(data);
         });
     }
+
     private void writeData(String data) {
         try {
             FileOutputStream fileOutputStream = openFileOutput("MyFile", Context.MODE_PRIVATE);
             fileOutputStream.write((data).getBytes());
             fileOutputStream.close();
-        }catch (IOException e) {
+            System.out.println(data);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     private String readFile() {
         StringBuilder stringBuilder = new StringBuilder();
         try {
@@ -80,6 +83,7 @@ public class Field extends AppCompatActivity {
         }
         return stringBuilder.toString();
     }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void deleteItem() {
         String currentData = readFile();

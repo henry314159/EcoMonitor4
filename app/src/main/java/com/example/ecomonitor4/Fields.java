@@ -57,6 +57,7 @@ public class Fields extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(stringBuilder.toString());
         return stringBuilder.toString();
     }
 }

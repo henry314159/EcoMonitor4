@@ -1,7 +1,10 @@
 package com.example.ecomonitor4;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Set;
@@ -154,7 +157,6 @@ public class PiBluetooth extends Activity {
             }
         }
     }
-
 
     @RequiresApi(api = Build.VERSION_CODES.S)
     public void sendBtMsg(String msg2send) {

@@ -25,7 +25,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemName"
-        app:layout_constraintVertical_bias="0.528" />
+        app:layout_constraintVertical_bias="0.528"
+        app:backgroundTint="@color/green" />
 
     <Button
         android:id="@+id/fieldInfoButton"
@@ -36,5 +37,6 @@
         app:layout_constraintBottom_toTopOf="@+id/deleteFieldBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:backgroundTint="@color/green" />
 </androidx.constraintlayout.widget.ConstraintLayout>

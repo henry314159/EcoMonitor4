@@ -45,16 +45,16 @@ public class Motors extends Activity {
         setContentView(R.layout.activity_motors);
 
         forward = findViewById(R.id.forwardButton);
-        forward.setOnClickListener(v -> command = "f");
+        forward.setOnClickListener(v -> command = "r");
 
         left = findViewById(R.id.leftButton);
-        left.setOnClickListener(v -> command = "l");
+        left.setOnClickListener(v -> command = "b");
 
         right = findViewById(R.id.rightButton);
-        right.setOnClickListener(v -> command = "r");
+        right.setOnClickListener(v -> command = "f");
 
         back = findViewById(R.id.backButton);
-        back.setOnClickListener(v -> command = "b");
+        back.setOnClickListener(v -> command = "l");
 
         stopButton = findViewById(R.id.stopMotorsButton);
         stopButton.setOnClickListener(v -> command = "s");

@@ -14,5 +14,5 @@
     <string name="weather_button" translatable="false">Click for weather forecast</string>
     <string name="delete_field" translatable="false">Triple click to delete field</string>
     <string name="field_info" translatable="false">Click to see the raspberry pi data gathered about this field</string>
-    <string name="about_us" translatable="false">Hello!\n\nFor more information about this project go to our website here (sorry i do not know how to hyperlink): https://pi-drate.github.io\n\nIf you are interested, the code for our project can be found here: https://github.com/henry314159/EcoMonitor4\n\nThank you for supporting our project!</string>
+    <string name="about_us" translatable="false">Hello!\n\nFor more information about this project go to our website <a href="https://pi-drate.github.io">here</a>.\n\nIf you are interested, the code for our project can be found <a href="https://github.com/henry314159/EcoMonitor4">here</a>.\n\nThank you for supporting our project!</string>
 </resources>

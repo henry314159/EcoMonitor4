@@ -22,7 +22,8 @@
             android:text="@string/weather"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:backgroundTint="@color/green"/>
 
         <Button
             android:id="@+id/piBtn"
@@ -35,7 +36,8 @@
             android:text="@string/pi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/weatherBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/weatherBtn"
+            app:backgroundTint="@color/green"/>
 
         <Button
             android:id="@+id/fieldsBtn"
@@ -48,10 +50,11 @@
             android:text="@string/fields"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/piBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/piBtn"
+            app:backgroundTint="@color/green" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/descriptionText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

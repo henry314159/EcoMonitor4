@@ -6,6 +6,7 @@
     tools:targetApi="o">
 
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
@@ -32,6 +33,7 @@
         <activity android:name=".Field"/>
         <activity android:name=".AddField"/>
         <activity android:name=".Motors"/>
+        <activity android:name=".FieldInfoAndGraphs"/>
         <meta-data
             android:name="weatherKey"
             android:value="${WEATHER_KEY}" />
